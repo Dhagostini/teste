@@ -35,8 +35,7 @@
                         let qtCotas = parseFloat(seriesSenior[i].getElementsByTagName("QT_COTAS")[0].textContent);
                         let vlCotas = parseFloat(seriesSenior[i].getElementsByTagName("VL_COTAS")[0].textContent);
                         let valorTotal = qtCotas * vlCotas;
-                        let qtCotistasElem = seriesSenior[i].getElementsByTagName("QT_COTISTAS")[0];
-                        let qtCotistas = qtCotistasElem ? parseInt(qtCotistasElem.textContent) : 0;
+                        let qtCotistas = parseInt(xmlDoc.getElementsByTagName("QT_COTISTAS")[i].textContent);
                         
                         if (valorTotal > 0) {
                             cotasInfo += `<p><strong>${serie}</strong> - Quantidade: ${qtCotas.toLocaleString('pt-BR')} | Valor: R$ ${vlCotas.toLocaleString('pt-BR')} | Total: R$ ${valorTotal.toLocaleString('pt-BR')} | Cotistas: ${qtCotistas}</p>`;
@@ -50,8 +49,7 @@
                         let qtCotas = parseFloat(seriesSubord[i].getElementsByTagName("QT_COTAS")[0].textContent);
                         let vlCotas = parseFloat(seriesSubord[i].getElementsByTagName("VL_COTAS")[0].textContent);
                         let valorTotal = qtCotas * vlCotas;
-                        let qtCotistasElem = seriesSubord[i].getElementsByTagName("QT_COTISTAS")[0];
-                        let qtCotistas = qtCotistasElem ? parseInt(qtCotistasElem.textContent) : 0;
+                        let qtCotistas = parseInt(xmlDoc.getElementsByTagName("QT_COTISTAS")[seriesSenior.length + i].textContent);
                         
                         if (valorTotal > 0) {
                             cotasInfo += `<p><strong>${tipo} (${serie})</strong> - Quantidade: ${qtCotas.toLocaleString('pt-BR')} | Valor: R$ ${vlCotas.toLocaleString('pt-BR')} | Total: R$ ${valorTotal.toLocaleString('pt-BR')} | Cotistas: ${qtCotistas}</p>`;
